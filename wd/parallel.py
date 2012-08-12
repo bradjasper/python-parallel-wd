@@ -3,6 +3,8 @@ import unittest
 import json
 import multiprocessing
 
+from django.test import LiveServerTestCase
+
 class Remote(object):
     """
     """
@@ -63,7 +65,7 @@ def multiply(test):
     """Make test run in mutiple browsers
     """
 
-    class SubTest(unittest.TestCase):
+    class SubTest(LiveServerTestCase):
         def __init__(self, driver=None):
             self.driver = driver
             self.driver.implicitly_wait(30)
